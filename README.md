@@ -17,5 +17,5 @@ A recreation of Angry Birds in the Godot Engine. Made in accordance with the cou
 - Use of Global Scope Scripts and Scenes
 
 # In-Game Screenshots
-![level selection](screenshots/angry_animals_selection.png)
-![level selection](screenshots/angry_animals_screenshot.png)
+![level selection](screenshots/angry_animals_level_selection.png)
+![level selection](screenshots/angry_animals_level_screenshot.png)
