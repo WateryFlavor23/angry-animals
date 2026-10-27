@@ -1,0 +1,163 @@
+[gd_scene format=3 uid="uid://c6f8vj8yki2q5"]
+
+[ext_resource type="Script" uid="uid://bsikr3u5xiryx" path="res://scripts/game_ui.gd" id="1_u001w"]
+[ext_resource type="LabelSettings" uid="uid://cottrolpi2m6s" path="res://rsc/tracker_labels.tres" id="1_yubou"]
+[ext_resource type="FontFile" uid="uid://de6l4ame7505i" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="2_rns2u"]
+[ext_resource type="AudioStream" uid="uid://jvg4j101h1ch" path="res://assets/audio/jazzyfrenchy.mp3" id="4_u2dgd"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_u001w"]
+font = ExtResource("2_rns2u")
+font_size = 56
+font_color = Color(0.5921569, 1, 1, 1)
+outline_size = 20
+outline_color = Color(0.19434929, 0.19434926, 0.19434926, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_u2dgd"]
+font = ExtResource("2_rns2u")
+font_size = 24
+font_color = Color(0.7083546, 0.47074127, 0.19749218, 1)
+outline_size = 12
+outline_color = Color(0.19434929, 0.19434926, 0.19434926, 1)
+
+[sub_resource type="Animation" id="Animation_rns2u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VbComplete:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_u001w"]
+resource_name = "appear"
+length = 2.0
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VbComplete:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u2dgd"]
+_data = {
+&"RESET": SubResource("Animation_rns2u"),
+&"appear": SubResource("Animation_u001w")
+}
+
+[node name="GameUI" type="Control" unique_id=453006549]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_u001w")
+
+[node name="MC" type="MarginContainer" parent="." unique_id=873773136]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="VbTracking" type="VBoxContainer" parent="MC" unique_id=407557582]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="HBoxLevel" type="HBoxContainer" parent="MC/VbTracking" unique_id=998903401]
+layout_mode = 2
+
+[node name="LevelLabel" type="Label" parent="MC/VbTracking/HBoxLevel" unique_id=1179954343]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "LEVEL "
+label_settings = ExtResource("1_yubou")
+
+[node name="LevelNumberLabel" type="Label" parent="MC/VbTracking/HBoxLevel" unique_id=100641464]
+unique_name_in_owner = true
+z_index = 1
+layout_mode = 2
+text = "??"
+label_settings = ExtResource("1_yubou")
+
+[node name="HBoxAttempts" type="HBoxContainer" parent="MC/VbTracking" unique_id=2009466994]
+layout_mode = 2
+
+[node name="AttemptLabel" type="Label" parent="MC/VbTracking/HBoxAttempts" unique_id=1894662094]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "ATTEMPT "
+label_settings = ExtResource("1_yubou")
+
+[node name="AttemptNumberLabel" type="Label" parent="MC/VbTracking/HBoxAttempts" unique_id=96755410]
+unique_name_in_owner = true
+layout_mode = 2
+text = "?"
+label_settings = ExtResource("1_yubou")
+
+[node name="VbComplete" type="VBoxContainer" parent="." unique_id=1869780998]
+unique_name_in_owner = true
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.5
+offset_top = -43.0
+offset_right = 200.5
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CompleteLabel" type="Label" parent="VbComplete" unique_id=579536415]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "LEVEL COMPLETE"
+label_settings = SubResource("LabelSettings_u001w")
+
+[node name="EscapeLabel" type="Label" parent="VbComplete" unique_id=377109368]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "PRESS ESCAPE"
+label_settings = SubResource("LabelSettings_u2dgd")
+
+[node name="FinishTimer" type="Timer" parent="." unique_id=1768241244]
+unique_name_in_owner = true
+wait_time = 1.5
+one_shot = true
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=402211684]
+unique_name_in_owner = true
+stream = ExtResource("4_u2dgd")
+volume_db = -8.0
+parameters/looping = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1361469487]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_u2dgd")
+
+[connection signal="timeout" from="FinishTimer" to="." method="_on_finish_timer_timeout"]

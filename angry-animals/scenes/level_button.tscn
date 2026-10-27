@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://v4h2tnfhcanf"]
+
+[ext_resource type="Texture2D" uid="uid://bbmuewb6qb7ih" path="res://assets/ui/panel_beige.png" id="1_o8246"]
+[ext_resource type="Script" uid="uid://ltla8mt8w6br" path="res://scripts/level_button.gd" id="2_6g3el"]
+[ext_resource type="FontFile" uid="uid://de6l4ame7505i" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="2_hrusj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6g3el"]
+font = ExtResource("2_hrusj")
+font_size = 42
+outline_size = 12
+outline_color = Color(0.19434929, 0.19434926, 0.19434926, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ium1h"]
+font = ExtResource("2_hrusj")
+font_size = 24
+outline_size = 12
+outline_color = Color(0.19434929, 0.19434926, 0.19434926, 1)
+
+[node name="LevelButton" type="TextureButton" unique_id=215168188]
+offset_right = 100.0
+offset_bottom = 100.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+offset_transform_pivot = Vector2(50, 50)
+offset_transform_pivot_ratio = Vector2(50, 50)
+offset_transform_visual_only = false
+texture_normal = ExtResource("1_o8246")
+script = ExtResource("2_6g3el")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2075105811]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.5
+offset_top = -48.0
+offset_right = 38.5
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VB" type="VBoxContainer" parent="MarginContainer" unique_id=504389710]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="LevelLabel" type="Label" parent="MarginContainer/VB" unique_id=187495138]
+unique_name_in_owner = true
+layout_mode = 2
+text = "99"
+label_settings = SubResource("LabelSettings_6g3el")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer/VB" unique_id=1168246141]
+unique_name_in_owner = true
+layout_mode = 2
+text = "9999"
+label_settings = SubResource("LabelSettings_ium1h")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

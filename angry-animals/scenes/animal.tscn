@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://ckcis8rtsggxd"]
+
+[ext_resource type="Script" uid="uid://y7tdh1s6jxnw" path="res://scripts/animal.gd" id="1_ieass"]
+[ext_resource type="Texture2D" uid="uid://dplfqy5csqafm" path="res://assets/player/parrot.png" id="1_qkfhc"]
+[ext_resource type="AudioStream" uid="uid://b5f5seu34mi1f" path="res://assets/audio/stretch2.ogg" id="3_ojfhj"]
+[ext_resource type="AudioStream" uid="uid://bx43ahcn8xrer" path="res://assets/audio/catapult.ogg" id="4_82lbb"]
+[ext_resource type="AudioStream" uid="uid://bmu243wuhmcrh" path="res://assets/audio/kick_wood.ogg" id="5_chpvc"]
+[ext_resource type="AudioStream" uid="uid://cgjmdub3l0qou" path="res://assets/audio/splash.ogg" id="6_ojfhj"]
+[ext_resource type="Texture2D" uid="uid://ld1ucjqkwowc" path="res://assets/items/arrow.png" id="7_d7epe"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qkfhc"]
+bounce = 0.2
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_npgl0"]
+radius = 25.179358
+
+[sub_resource type="LabelSettings" id="LabelSettings_qkfhc"]
+font_color = Color(0, 0, 0, 1)
+
+[node name="Animal" type="RigidBody2D" unique_id=1263081331]
+input_pickable = true
+mass = 10.0
+physics_material_override = SubResource("PhysicsMaterial_qkfhc")
+freeze = true
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_ieass")
+max_drag_distance = 100
+base_impulse = 250
+impulse_mult = 40
+
+[node name="AnimalSprite" type="Sprite2D" parent="." unique_id=1259626524]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_qkfhc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1438120783]
+shape = SubResource("CircleShape2D_npgl0")
+
+[node name="StretchSound" type="AudioStreamPlayer2D" parent="." unique_id=744658513]
+unique_name_in_owner = true
+stream = ExtResource("3_ojfhj")
+volume_db = -3.0
+
+[node name="LaunchSound" type="AudioStreamPlayer2D" parent="." unique_id=1268604486]
+unique_name_in_owner = true
+stream = ExtResource("4_82lbb")
+volume_db = -5.0
+
+[node name="KickSound" type="AudioStreamPlayer2D" parent="." unique_id=1008123254]
+unique_name_in_owner = true
+stream = ExtResource("5_chpvc")
+volume_db = -5.0
+
+[node name="SplashSound" type="AudioStreamPlayer2D" parent="." unique_id=1308019056]
+unique_name_in_owner = true
+stream = ExtResource("6_ojfhj")
+volume_db = -8.0
+
+[node name="RemoveTimer" type="Timer" parent="." unique_id=172784380]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="Debug" type="Label" parent="." unique_id=473332876]
+unique_name_in_owner = true
+visible = false
+top_level = true
+offset_left = 13.0
+offset_top = 13.0
+offset_right = 114.0
+offset_bottom = 88.0
+label_settings = SubResource("LabelSettings_qkfhc")
+
+[node name="ArrowSprite" type="Sprite2D" parent="." unique_id=363386857]
+unique_name_in_owner = true
+visible = false
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("7_d7epe")
+offset = Vector2(150, 0)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="sleeping_state_changed" from="." to="." method="_on_sleeping_state_changed"]
+[connection signal="timeout" from="RemoveTimer" to="." method="_on_remove_timer_timeout"]

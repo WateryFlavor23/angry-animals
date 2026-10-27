@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dt8wpysv803gr"]
+
+[ext_resource type="PackedScene" uid="uid://bj8nx1eegpsv8" path="res://scenes/level_base.tscn" id="1_h23n6"]
+[ext_resource type="PackedScene" uid="uid://ekdhdrymg7n4" path="res://scenes/wood_cup.tscn" id="2_uwxec"]
+[ext_resource type="PackedScene" uid="uid://dtahw0i1eakl5" path="res://scenes/stone_wall.tscn" id="3_uwxec"]
+
+[node name="Level3" unique_id=2063081304 instance=ExtResource("1_h23n6")]
+
+[node name="WoodCup" parent="." index="4" unique_id=1240910759 instance=ExtResource("2_uwxec")]
+position = Vector2(958, 577)
+
+[node name="WoodCup2" parent="." index="5" unique_id=1853912986 instance=ExtResource("2_uwxec")]
+position = Vector2(758, 387)
+
+[node name="WoodCup4" parent="." index="6" unique_id=699354677 instance=ExtResource("2_uwxec")]
+position = Vector2(1164, 445)
+
+[node name="StoneWall" parent="." index="7" unique_id=1681419681 instance=ExtResource("3_uwxec")]
+position = Vector2(1078, 110.000046)
+rotation = 2.0943952
+scale = Vector2(0.6, 1.2)
+
+[node name="StoneWall2" parent="." index="8" unique_id=1387524376 instance=ExtResource("3_uwxec")]
+position = Vector2(784, 37)
+rotation = 1.5707964
+scale = Vector2(0.6, 1.2)

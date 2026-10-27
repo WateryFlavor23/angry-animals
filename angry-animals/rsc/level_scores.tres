@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="LevelScoresResource" format=3]
+
+[ext_resource type="Script" path="res://classes/LevelScoresResource.gd" id="1_juf1c"]
+
+[resource]
+script = ExtResource("1_juf1c")
+level_scores = Dictionary[int, int]({
+0: 13,
+1: 1,
+2: 7,
+3: 8
+})
+metadata/_custom_type_script = "uid://c4rgx2lmgp1yu"

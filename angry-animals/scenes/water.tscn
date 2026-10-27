@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://d2oto5vtlfng0"]
+
+[ext_resource type="Texture2D" uid="uid://bxycll3a8rrip" path="res://assets/scene/waterTop_high.png" id="1_bdk6y"]
+[ext_resource type="Script" uid="uid://5b4dw4moyays" path="res://scripts/water.gd" id="1_s3811"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_s3811"]
+distance = 17.0
+
+[node name="Water" type="Node2D" unique_id=1571273218]
+script = ExtResource("1_s3811")
+
+[node name="WaterTopHigh" type="Parallax2D" parent="." unique_id=807577156]
+z_index = 1
+repeat_size = Vector2(128, 0)
+autoscroll = Vector2(-30, 0)
+repeat_times = 15
+
+[node name="Sprite2D" type="Sprite2D" parent="WaterTopHigh" unique_id=847909066]
+texture = ExtResource("1_bdk6y")
+
+[node name="WaterZone" type="Area2D" parent="." unique_id=1912239704]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WaterZone" unique_id=1970945917]
+shape = SubResource("WorldBoundaryShape2D_s3811")
+
+[connection signal="body_entered" from="WaterZone" to="." method="_on_water_zone_body_entered"]

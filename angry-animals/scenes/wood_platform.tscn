@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://crltbhcaf8a0x"]
+
+[ext_resource type="Texture2D" uid="uid://b2ji2djc857t0" path="res://assets/env/elementWood015.png" id="1_h8u5w"]
+[ext_resource type="Texture2D" uid="uid://gf88onc30d6d" path="res://assets/env/elementWood019.png" id="2_mne23"]
+[ext_resource type="Texture2D" uid="uid://d2pvu0p407n45" path="res://assets/env/elementWood004.png" id="3_wkoo1"]
+
+[node name="WoodPlatform" type="StaticBody2D" unique_id=268517237]
+
+[node name="ElementWood015" type="Sprite2D" parent="." unique_id=20005433]
+position = Vector2(0, 35)
+texture = ExtResource("1_h8u5w")
+
+[node name="ElementWood019" type="Sprite2D" parent="." unique_id=1533143795]
+position = Vector2(-145, -39)
+texture = ExtResource("2_mne23")
+
+[node name="ElementWood020" type="Sprite2D" parent="." unique_id=1098845600]
+position = Vector2(145, -39)
+texture = ExtResource("2_mne23")
+
+[node name="ElementWood004" type="Sprite2D" parent="." unique_id=1324023364]
+position = Vector2(-75, -35)
+texture = ExtResource("3_wkoo1")
+
+[node name="ElementWood005" type="Sprite2D" parent="." unique_id=1101447604]
+position = Vector2(76, -35)
+scale = Vector2(-1, 1)
+texture = ExtResource("3_wkoo1")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1765486457]
+polygon = PackedVector2Array(-178, -147, -178, 67, 177, 67, 178, -148, 111, -148, 111, -69, 42, 0, -41, -1, -111, -71, -111, -147)

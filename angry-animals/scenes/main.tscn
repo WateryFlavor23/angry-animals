@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://dwtd3gppj3ncn"]
+
+[ext_resource type="Texture2D" uid="uid://diintowtp2sf7" path="res://assets/env/MainBG.png" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://v4h2tnfhcanf" path="res://scenes/level_button.tscn" id="2_sugp2"]
+[ext_resource type="AudioStream" uid="uid://bqtciqf2g4d7w" path="res://assets/audio/birdsong.wav" id="3_jyhfs"]
+[ext_resource type="FontFile" uid="uid://de6l4ame7505i" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="4_jyhfs"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tbgi4"]
+font = ExtResource("4_jyhfs")
+font_size = 84
+font_color = Color(1, 0.36086503, 0.35482472, 1)
+outline_size = 12
+outline_color = Color(0.19434929, 0.19434926, 0.19434926, 1)
+
+[node name="Main" type="Control" unique_id=871258518]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1032221788]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_o5qli")
+
+[node name="LevelContainer" type="HBoxContainer" parent="." unique_id=172141491]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 48
+
+[node name="LevelButton" parent="LevelContainer" unique_id=215168188 instance=ExtResource("2_sugp2")]
+layout_mode = 2
+
+[node name="LevelButton2" parent="LevelContainer" unique_id=1023600644 instance=ExtResource("2_sugp2")]
+layout_mode = 2
+level_number = 2
+
+[node name="LevelButton3" parent="LevelContainer" unique_id=111553139 instance=ExtResource("2_sugp2")]
+layout_mode = 2
+level_number = 3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=926005993]
+stream = ExtResource("3_jyhfs")
+volume_db = -10.0
+autoplay = true
+
+[node name="TitleCard" type="Label" parent="." unique_id=1109165502]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -309.0
+offset_top = 60.0
+offset_right = 309.0
+offset_bottom = 145.0
+grow_horizontal = 2
+rotation = -0.034906585
+text = "ANGRY ANIMALS"
+label_settings = SubResource("LabelSettings_tbgi4")
